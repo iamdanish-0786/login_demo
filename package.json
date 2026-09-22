@@ -1,0 +1,25 @@
+{
+  "name": "login_demo",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamdanish-0786/login_demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamdanish-0786/login_demo/issues"
+  },
+  "homepage": "https://github.com/iamdanish-0786/login_demo#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^18.0.2",
+    "express": "^5.2.1",
+    "mysql2": "^3.24.4"
+  }
+}
