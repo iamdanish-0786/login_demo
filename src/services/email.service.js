@@ -2,39 +2,24 @@ const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 465),
+    port: Number(process.env.SMTP_PORT),
     secure: process.env.SMTP_SECURE === "true",
 
     auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD
+        pass: process.env.SMTP_PASS
     }
 });
 
-async function sendOtpEmail(email, otp) {
+async function sendOtpEmail(to, otp) {
+    console.log("SMTP USER:", process.env.SMTP_USER);
+    console.log("SMTP PASS EXISTS:", !!process.env.SMTP_PASS);
+
     await transporter.sendMail({
         from: process.env.SMTP_FROM,
-        to: email,
-        subject: "Your Login OTP",
-
-        text: `Your login OTP is ${otp}. It will expire in 10 minutes.`,
-
-        html: `
-            <div style="font-family: Arial, sans-serif;">
-                <h2>Login Verification</h2>
-
-                <p>Your one-time password is:</p>
-
-                <h1>${otp}</h1>
-
-                <p>This OTP will expire in 10 minutes.</p>
-
-                <p>
-                    If you did not request this code,
-                    you can ignore this email.
-                </p>
-            </div>
-        `
+        to,
+        subject: "Your OTP",
+        text: `Your OTP is ${otp}. It expires in 10 minutes.`
     });
 }
 

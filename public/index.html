@@ -1,113 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Login</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f5ef">
+    <meta name="description" content="Explore the seven wonders of the modern world, from the ancient city of Petra to the Great Wall of China.">
+    <title>Seven Wonders | A World Worth Exploring</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-
 </head>
-
 <body>
+    <header class="site-header">
+        <a class="wordmark" href="#home" aria-label="Seven Wonders home">
+            <span class="wordmark-mark" aria-hidden="true">7</span>
+            <span>Wonders<span class="wordmark-period">.</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#wonders">The wonders</a>
+            <a href="#about">The story</a>
+        </nav>
+        <div class="header-actions">
+            <button class="button button-quiet" type="button" data-open-auth="login">Log in</button>
+            <button class="button button-dark" type="button" data-open-auth="register">Register <span aria-hidden="true">↗</span></button>
+            <button class="button button-quiet logout-button" id="logoutButton" type="button" hidden>Log out</button>
+        </div>
+    </header>
 
-    <main class="login-container">
-
-        <section class="login-card">
-
-            <h1>Sign in</h1>
-
-            <p class="subtitle">
-                Enter your email to receive a verification code.
-            </p>
-
-
-            <!-- EMAIL -->
-
-            <form id="loginForm">
-
-                <label for="email">
-                    Email address
-                </label>
-
-                <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    autocomplete="email"
-                    required
-                >
-
-                <button
-                    id="sendOtpButton"
-                    type="submit"
-                >
-                    Send OTP
-                </button>
-
-            </form>
-
-
-            <!-- OTP -->
-
-            <section
-                id="otpSection"
-                hidden
-            >
-
-                <h2>Verify OTP</h2>
-
-                <p>
-                    Enter the 6-digit code sent to your email.
-                </p>
-
-                <label for="otp">
-                    Verification code
-                </label>
-
-                <input
-                    id="otp"
-                    name="otp"
-                    type="text"
-                    inputmode="numeric"
-                    maxlength="6"
-                    autocomplete="one-time-code"
-                    placeholder="123456"
-                >
-
-                <button
-                    id="verifyOtpButton"
-                    type="button"
-                >
-                    Verify OTP
-                </button>
-
-            </section>
-
-
-            <!-- MESSAGE -->
-
-            <div
-                id="message"
-                role="alert"
-                aria-live="polite"
-            ></div>
-
+    <main id="home">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span></span> Seven places. One extraordinary world.</p>
+                <h1 id="hero-title">The world is full of <em>wonder.</em></h1>
+                <p class="hero-description">From cities carved into rose-red cliffs to temples that touch the sky, discover the places that have captivated the human imagination for centuries.</p>
+                <div class="hero-actions">
+                    <a class="button button-coral" href="#wonders">Explore the wonders <span aria-hidden="true">↓</span></a>
+                    <button class="text-link" type="button" data-open-auth="register">Make this journey yours <span aria-hidden="true">↗</span></button>
+                </div>
+                <div class="hero-note"><span class="note-line"></span><span>A collection for the curious</span></div>
+            </div>
+            <a class="hero-image" href="#wonders" aria-label="Explore the Great Wall of China">
+                <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1600&q=85" alt="The Great Wall of China winding over a green mountain ridge">
+                <span class="image-index">01 / 07</span>
+                <span class="image-caption"><span>China</span><strong>The Great Wall</strong></span>
+                <span class="image-arrow" aria-hidden="true">↗</span>
+            </a>
+            <div class="hero-stamp" aria-hidden="true"><span>Wonder<br>is out there</span><b>✳</b></div>
         </section>
 
+        <section class="wonders-section" id="wonders" aria-labelledby="wonders-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow"><span></span> A small world of its own</p>
+                    <h2 id="wonders-title">Seven wonders.<br><em>Endless ways to see.</em></h2>
+                </div>
+                <p class="section-intro">Each one tells a different story about what people can dream, build, and leave behind.</p>
+            </div>
+
+            <div class="wonder-grid">
+                <a class="wonder-card wonder-card-large" href="#about">
+                    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=85" alt="The white marble dome and minarets of the Taj Mahal">
+                    <span class="card-number">02</span><span class="card-copy"><span>Agra, India</span><strong>Taj Mahal</strong></span><span class="card-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="wonder-card" href="#about">
+                    <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=900&q=85" alt="The Colosseum in Rome, Italy">
+                    <span class="card-number">03</span><span class="card-copy"><span>Rome, Italy</span><strong>Colosseum</strong></span><span class="card-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="wonder-card" href="#about">
+                    <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=900&q=85" alt="Machu Picchu among the peaks of the Peruvian Andes">
+                    <span class="card-number">04</span><span class="card-copy"><span>Cusco Region, Peru</span><strong>Machu Picchu</strong></span><span class="card-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="wonder-card" href="#about">
+                    <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=85" alt="The stepped stone pyramid of Chichen Itza in Mexico">
+                    <span class="card-number">05</span><span class="card-copy"><span>Yucatan, Mexico</span><strong>Chichen Itza</strong></span><span class="card-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="wonder-card" href="#about">
+                    <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=900&q=85" alt="The Christ the Redeemer statue overlooking Rio de Janeiro">
+                    <span class="card-number">06</span><span class="card-copy"><span>Rio de Janeiro, Brazil</span><strong>Christ the Redeemer</strong></span><span class="card-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="wonder-card wonder-card-wide" href="#about">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=85" alt="The ancient rock-cut city of Petra in Jordan">
+                    <span class="card-number">07</span><span class="card-copy"><span>Ma'an, Jordan</span><strong>Petra</strong></span><span class="card-arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+            <p class="collection-note">The New Seven Wonders of the World, chosen by a global vote in 2007.</p>
+        </section>
+
+        <section class="closing-band" id="about">
+            <span class="closing-mark" aria-hidden="true">✳</span>
+            <p>Made by human hands.<br><em>Remembered by the whole world.</em></p>
+            <button class="button button-light" type="button" data-open-auth="register">Join the journey <span aria-hidden="true">↗</span></button>
+        </section>
     </main>
 
+    <footer class="site-footer"><a class="wordmark" href="#home"><span class="wordmark-mark" aria-hidden="true">7</span><span>Wonders<span class="wordmark-period">.</span></span></a><span>A little closer to the extraordinary.</span><a href="#home">Back to top ↑</a></footer>
 
+    <dialog class="auth-dialog" id="authDialog" aria-labelledby="authTitle">
+        <button class="dialog-close" id="closeAuth" type="button" aria-label="Close dialog">×</button>
+        <div class="dialog-aside"><span class="dialog-aside-number">7</span><p>There is more<br>to discover.</p><span>YOUR NEXT CHAPTER STARTS HERE</span></div>
+        <div class="dialog-content">
+            <p class="eyebrow"><span></span> Welcome, curious one</p>
+            <h2 id="authTitle">Create your account</h2>
+            <p class="dialog-subtitle" id="authSubtitle">Save the places you dream of seeing.</p>
+            <form id="registerForm" class="auth-form">
+                <label for="registerName">Your name</label>
+                <input id="registerName" name="name" type="text" placeholder="Alex Morgan" autocomplete="name" required>
+                <label for="registerEmail">Email address</label>
+                <input id="registerEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+                <label for="registerPassword">Password</label>
+                <input id="registerPassword" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required>
+                <button class="button button-dark auth-submit" type="submit">Create account <span aria-hidden="true">↗</span></button>
+            </form>
+            <form id="loginForm" class="auth-form" hidden>
+                <label for="loginEmail">Email address</label>
+                <input id="loginEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" name="password" type="password" placeholder="Your password" autocomplete="current-password" required>
+                <button class="button button-dark auth-submit" type="submit">Log in <span aria-hidden="true">↗</span></button>
+            </form>
+            <p class="auth-switch" id="authSwitch">Already have an account? <button type="button" data-open-auth="login">Log in</button></p>
+            <p class="auth-feedback" id="authFeedback" role="status" aria-live="polite"></p>
+        </div>
+    </dialog>
     <script src="/app.js"></script>
-
 </body>
-
 </html>
